@@ -46,7 +46,7 @@ export async function POST(request: NextRequest) {
       !body.title ||
       !body.description ||
       !body.videoUrl ||
-      !body.thumbanilUrl
+      !body.thumbnailUrl
     ) {
       return NextResponse.json(
         {

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import mongoose, { models, model, Schema } from "mongoose";
 
 export const VIDEO_DIMENSIONS = {
@@ -11,7 +10,7 @@ export interface IVideo {
   title: string;
   description: string;
   videoUrl: string;
-  thumbanilUrl: string;
+  thumbnailUrl: string;
   controls?: boolean;
   transformation?: {
     height: number;
@@ -25,7 +24,7 @@ const videoSchema = new Schema<IVideo>(
     title: { type: String, required: true },
     description: { type: String, required: true },
     videoUrl: { type: String, required: true },
-    thumbanilUrl: { type: String, required: true },
+    thumbnailUrl: { type: String, required: true },
     controls: { type: Boolean, default: true },
     transformation: {
       height: { type: Number, default: VIDEO_DIMENSIONS.height },
@@ -38,7 +37,6 @@ const videoSchema = new Schema<IVideo>(
   }
 );
 
-
-const Video = models?.User || model<IVideo>("Video", videoSchema);
+const Video = models.Video || model<IVideo>("Video", videoSchema);
 
 export default Video;
